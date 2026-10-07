@@ -201,8 +201,30 @@ footer li a{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-tra
 footer li a:hover{color:var(--cream)}
 footer .legal{font-size:12.5px;color:#8d97a9;max-width:90ch;line-height:1.6}
 
+
+/* ---------- PHOTOS ---------- */
+.era{padding:0 0 24px}
+.era>*:not(.era-img){margin-inline:22px}
+.era-img{aspect-ratio:16/8;background:var(--white);border-bottom:1px solid var(--line);display:grid;place-items:center;overflow:hidden;margin:0 0 6px}
+.era-img img{width:92%;height:92%;object-fit:contain;transition:transform .8s var(--ease)}
+.era:hover .era-img img{transform:scale(1.07) rotate(-1.5deg)}
+.era-img.soon{background:var(--navy)}
+.era-img.soon span{font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--cream-soft);border:1px solid rgba(239,230,210,.3);padding:8px 12px}
+.product .art.photo,.product .art.drawing{background:var(--white);border-bottom:1px solid var(--line)}
+.product .art.photo img{object-fit:contain;padding:6%}
+.reel{overflow:hidden;padding-block:6px 10px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.reel-track{display:flex;gap:20px;width:max-content;animation:reel 55s linear infinite}
+.reel:hover .reel-track{animation-play-state:paused}
+@keyframes reel{to{transform:translateX(calc(-50% - 10px))}}
+.reel figure{margin:0;width:clamp(260px,32vw,400px);background:var(--white);border:1px solid var(--line);display:flex;flex-direction:column;transition:transform .4s var(--ease),box-shadow .4s}
+.reel figure:hover{transform:translateY(-6px);box-shadow:0 20px 36px -26px rgba(15,28,48,.5)}
+.reel img{aspect-ratio:16/10;width:100%;object-fit:contain;padding:5%;background:var(--white)}
+.reel figcaption{padding:14px 18px;border-top:1px solid var(--line);font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-muted)}
+.reel figcaption b{display:block;font-family:var(--display);font-size:17px;letter-spacing:.02em;text-transform:none;color:var(--navy);margin-bottom:2px}
+@media(prefers-reduced-motion:reduce){.reel{overflow-x:auto}.reel-track{animation:none}}
+
 /* ---------- MOTION LAYER ---------- */
-#progress{position:fixed;left:0;top:calc(70px + env(safe-area-inset-top,0px));height:3px;width:0;background:var(--red-bright);z-index:51;transition:width .15s linear}
+#progress{position:fixed;left:0;top:env(safe-area-inset-top,0px);height:3px;width:0;background:var(--red-bright);z-index:51;transition:width .15s linear}
 nav{transition:transform .45s var(--ease)}
 nav.hide{transform:translateY(-110%)}
 /* hero entrance */
@@ -230,7 +252,7 @@ body.ready .logo-plate{animation-play-state:running}
 .sec-head.in h2::after{transform:scaleX(1)}
 /* era cards: watermark + lift */
 .era{position:relative;overflow:hidden;transition:border-color .3s,box-shadow .4s var(--ease),transform .4s var(--ease)}
-.era::before{content:attr(data-year);position:absolute;right:-8px;bottom:-26px;font-family:var(--display);font-size:118px;font-weight:700;color:var(--paper-deep);line-height:1;pointer-events:none;transition:color .4s,transform .6s var(--ease)}
+.era::before{content:attr(data-year);position:absolute;right:-6px;top:calc(50% - 10px);font-family:var(--display);font-size:96px;font-weight:700;color:var(--paper-deep);line-height:1;pointer-events:none;transition:color .4s,transform .6s var(--ease)}
 .era:hover{transform:translateY(-6px)}
 .era:hover::before{color:#f9e3e2;transform:translateY(-8px)}
 .era>*{position:relative}
@@ -309,6 +331,7 @@ tbody tr:hover td.us{background:#fbe5e3}
     <ul id="menu">
       <li><a href="#story">Story</a></li>
       <li><a href="#eras">Eras</a></li>
+      <li><a href="#platforms">Platforms</a></li>
       <li><a href="#products">Products</a></li>
       <li><a href="#principles">Engineering</a></li>
       <li><a href="#armory">Armory</a></li>
@@ -371,30 +394,35 @@ tbody tr:hover td.us{background:#fbe5e3}
     </div>
     <div class="era-rail">
       <a class="era card will-reveal" data-year="1775" href="#products">
+        <div class="era-img"><img src="assets/brown-bess.jpg" alt="Brown Bess flintlock musket" loading="lazy"></div>
         <div class="n">ERA I · 1775 – 1783</div><h3>Road to Independence</h3>
         <p>Flintlock muskets and Pennsylvania long rifles for reenactors, collectors and living history. Ships direct to your door.</p>
         <div class="tags"><i>Brown Bess</i><i>Charleville</i><i>Long Rifle</i></div>
         <div class="phase">Coming Phase 2</div>
       </a>
       <a class="era card will-reveal" data-year="1861" href="#products">
+        <div class="era-img"><img src="assets/navy-1851.jpg" alt="1851 Navy cap and ball revolver" loading="lazy"></div>
         <div class="n">ERA II · 1861 – 1865</div><h3>Preservation of the Union</h3>
         <p>Our founding era. Cap and ball revolvers, true drop-in conversion cylinders and internal kits that make the 1851 Navy run the way it should.</p>
         <div class="tags"><i>1851 Navy</i><i>1858 Remington</i><i>Conversions</i></div>
         <div class="phase">Available now</div>
       </a>
       <a class="era card will-reveal" data-year="1865" href="#armory">
+        <div class="era-img"><img src="assets/lever-1873.jpg" alt="1873 lever action rifle" loading="lazy"></div>
         <div class="n">ERA III · 1865 – 1899</div><h3>Wild West</h3>
         <p>Lever actions, single actions, SASS competition ammunition and engraving. A complete cowboy action rig in matching caliber.</p>
         <div class="tags"><i>1873</i><i>1892</i><i>.45 Schofield</i></div>
         <div class="phase">Rolling out</div>
       </a>
       <a class="era card will-reveal" data-year="1917" href="#products">
+        <div class="era-img"><img src="assets/thompson-drum.jpg" alt="Thompson submachine gun with drum" loading="lazy"></div>
         <div class="n">ERA IV · 1917 – 1945</div><h3>Arsenal of Democracy</h3>
         <p>The Thompson family, the M1 Carbine and the 1911. Drums and magazines that actually feed, available now. Complete firearms to follow.</p>
         <div class="tags"><i>Thompson</i><i>M1 Carbine</i><i>1911</i></div>
         <div class="phase">Magazines now</div>
       </a>
       <a class="era card will-reveal" data-year="1955" href="#waitlist">
+        <div class="era-img soon"><span>In development</span></div>
         <div class="n">ERA V · 1955 – Present</div><h3>Defending Freedom</h3>
         <p>Period correct M16A1, the Liberty AR in walnut and blued steel, the honest Patrol Carbine and a CQB that costs what it should.</p>
         <div class="tags"><i>M16A1</i><i>Liberty AR</i><i>Patrol Carbine</i></div>
@@ -404,8 +432,29 @@ tbody tr:hover td.us{background:#fbe5e3}
   </div>
 </section>
 
+<!-- ============ 3b. PLATFORMS ============ -->
+<section id="platforms" class="paper platforms">
+  <div class="wrap">
+    <div class="sec-head will-reveal">
+      <div class="eyebrow">Platforms We Build For</div>
+      <h2>The guns that made American history.</h2>
+      <p class="lede">Continental parts, conversions and service are built around these platforms. Hover to pause.</p>
+    </div>
+  </div>
+  <div class="reel" aria-label="Supported platforms">
+    <div class="reel-track">
+      <figure><img src="assets/navy-1851.jpg" alt="1851 Navy revolver" loading="lazy"><figcaption><b>1851 Navy</b>Cap and ball · 1861 era</figcaption></figure>
+      <figure><img src="assets/single-action-trio.jpg" alt="Single action army revolvers in blued, nickel and stainless" loading="lazy"><figcaption><b>Single Action Army</b>Cowboy action · 1873</figcaption></figure>
+      <figure><img src="assets/lever-1873.jpg" alt="1873 lever action rifle" loading="lazy"><figcaption><b>1873 Lever Action</b>Wild West · SASS</figcaption></figure>
+      <figure><img src="assets/thompson-1928-m1.jpg" alt="Thompson 1928 and M1 submachine guns" loading="lazy"><figcaption><b>Thompson 1928 &amp; M1</b>Arsenal of Democracy</figcaption></figure>
+      <figure><img src="assets/bar.jpg" alt="Browning Automatic Rifle with bipod" loading="lazy"><figcaption><b>Browning Automatic Rifle</b>1918 – 1945</figcaption></figure>
+      <figure><img src="assets/brown-bess.jpg" alt="Brown Bess flintlock musket with bayonet" loading="lazy"><figcaption><b>Brown Bess</b>Road to Independence</figcaption></figure>
+    </div>
+  </div>
+</section>
+
 <!-- ============ 4. PRODUCTS ============ -->
-<section id="products" class="paper">
+<section id="products">
   <div class="wrap">
     <div class="sec-head will-reveal">
       <div class="eyebrow">Phase 0 Lineup · No FFL Required · Ships to Your Door</div>
@@ -414,7 +463,7 @@ tbody tr:hover td.us{background:#fbe5e3}
     </div>
     <div class="grid">
       <article class="product card wide will-reveal">
-        <div class="art"><svg viewBox="0 0 360 200" fill="none" stroke="#efe6d2" stroke-width="2"><circle cx="110" cy="100" r="62"/><circle cx="110" cy="100" r="12"/><g id="cb"><circle cx="110" cy="52" r="14" fill="#1e3251"/></g><use href="#cb" transform="rotate(60 110 100)"/><use href="#cb" transform="rotate(120 110 100)"/><use href="#cb" transform="rotate(180 110 100)"/><use href="#cb" transform="rotate(240 110 100)"/><use href="#cb" transform="rotate(300 110 100)"/><path d="M200 150 L230 100 L262 100 L288 62" /><path d="M230 100 L230 150"/><circle cx="288" cy="62" r="8"/><rect x="196" y="146" width="80" height="12" fill="#1e3251"/><path d="M262 100 l10 26"/><path d="M190 40 h0" /><text x="190" y="190" fill="#efe6d2" font-family="IBM Plex Mono,monospace" font-size="11" letter-spacing="3" stroke="none">CYLINDER + INTERNAL KIT</text></svg><span class="badge">Flagship</span></div>
+        <div class="art photo"><img src="assets/navy-1851.jpg" alt="1851 Navy revolver, the platform for the Continental conversion" loading="lazy"><span class="badge">Flagship</span></div>
         <div class="body">
           <h3>Complete 1851 Conversion Bundle · .38 Special</h3>
           <p class="desc">Six shot conversion cylinder machined from 4140 steel, heat treated and hot blued, paired with the full internal upgrade kit. Install the kit, drop in the cylinder, load Continental .38 Special, shoot. Fits Pietta and Uberti 1851 steel frames.</p>
@@ -422,7 +471,7 @@ tbody tr:hover td.us{background:#fbe5e3}
         </div>
       </article>
       <article class="product card will-reveal">
-        <div class="art"><svg viewBox="0 0 200 200" fill="none" stroke="#efe6d2" stroke-width="2"><circle cx="100" cy="100" r="78"/><circle cx="100" cy="100" r="14"/><g id="ch"><circle cx="100" cy="40" r="17" fill="#1e3251"/></g><use href="#ch" transform="rotate(60 100 100)"/><use href="#ch" transform="rotate(120 100 100)"/><use href="#ch" transform="rotate(180 100 100)"/><use href="#ch" transform="rotate(240 100 100)"/><use href="#ch" transform="rotate(300 100 100)"/></svg></div>
+        <div class="art drawing"><svg viewBox="0 0 200 200" fill="none" stroke="#1e3251" stroke-width="2"><circle cx="100" cy="100" r="78"/><circle cx="100" cy="100" r="14"/><g id="ch"><circle cx="100" cy="40" r="17" fill="#ffffff"/></g><use href="#ch" transform="rotate(60 100 100)"/><use href="#ch" transform="rotate(120 100 100)"/><use href="#ch" transform="rotate(180 100 100)"/><use href="#ch" transform="rotate(240 100 100)"/><use href="#ch" transform="rotate(300 100 100)"/></svg></div>
         <div class="body">
           <h3>1851 Conversion Cylinder</h3>
           <p class="desc">Flat rear face, no cylinder mounted firing pins. Clean, simple, serviceable. Installs without tools or fitting.</p>
@@ -430,7 +479,7 @@ tbody tr:hover td.us{background:#fbe5e3}
         </div>
       </article>
       <article class="product card will-reveal">
-        <div class="art"><svg viewBox="0 0 200 200" fill="none" stroke="#efe6d2" stroke-width="2"><path d="M40 150 L80 90 L120 90 L150 50"/><path d="M80 90 L80 150"/><circle cx="150" cy="50" r="10"/><rect x="36" y="146" width="90" height="14" fill="#1e3251"/><path d="M120 90 l12 30"/></svg></div>
+        <div class="art drawing"><svg viewBox="0 0 200 200" fill="none" stroke="#1e3251" stroke-width="2"><path d="M40 150 L80 90 L120 90 L150 50"/><path d="M80 90 L80 150"/><circle cx="150" cy="50" r="10"/><rect x="36" y="146" width="90" height="14" fill="#ffffff"/><path d="M120 90 l12 30"/></svg></div>
         <div class="body">
           <h3>Internal Upgrade Kit</h3>
           <p class="desc">Hammer with integrated firing pin, bolt, hand, trigger, cylinder pin and coil mainspring. Works even with a Kirst cylinder.</p>
@@ -438,7 +487,7 @@ tbody tr:hover td.us{background:#fbe5e3}
         </div>
       </article>
       <article class="product card will-reveal">
-        <div class="art"><svg viewBox="0 0 200 200" fill="none" stroke="#efe6d2" stroke-width="2"><circle cx="100" cy="100" r="70"/><circle cx="100" cy="100" r="50"/><circle cx="100" cy="100" r="30"/><path d="M100 30 v140 M30 100 h140"/><rect x="86" y="160" width="28" height="30" fill="#1e3251"/></svg><span class="badge cream">Re-engineered</span></div>
+        <div class="art photo"><img src="assets/thompson-drum.jpg" alt="Thompson with 50 round drum magazine" loading="lazy"><span class="badge cream">Re-engineered</span></div>
         <div class="body">
           <h3>Improved Thompson L-Drum · 50 Round</h3>
           <p class="desc">Constant force spring, CNC machined follower and feed lips, a ratchet that cannot be overwound. Same external fit as the original.</p>
@@ -446,7 +495,7 @@ tbody tr:hover td.us{background:#fbe5e3}
         </div>
       </article>
       <article class="product card will-reveal">
-        <div class="art"><svg viewBox="0 0 200 200" fill="none" stroke="#efe6d2" stroke-width="2"><rect x="80" y="20" width="40" height="160" rx="3"/><path d="M80 40 h40 M80 60 h40 M80 80 h40 M80 100 h40 M80 120 h40 M80 140 h40"/><rect x="74" y="176" width="52" height="8" fill="#1e3251"/></svg></div>
+        <div class="art photo"><img src="assets/thompson-stick.jpg" alt="Thompson with stick magazine" loading="lazy"></div>
         <div class="body">
           <h3>Thompson Stick Magazines · 20 / 30 / 35</h3>
           <p class="desc">Rated 35. Optimized for 30. The spring is specified for real world loading so reliability is maximized where it matters.</p>
@@ -454,7 +503,7 @@ tbody tr:hover td.us{background:#fbe5e3}
         </div>
       </article>
       <article class="product card will-reveal">
-        <div class="art"><svg viewBox="0 0 200 200" fill="none" stroke="#efe6d2" stroke-width="2"><path d="M30 120 h140 v20 h-140z"/><path d="M50 120 v-30 h100 v30"/><path d="M60 90 l0 -20 M80 90 l0 -30 M100 90 l0 -24 M120 90 l0 -32 M140 90 l0 -18" stroke="#d4423b"/></svg></div>
+        <div class="art photo"><img src="assets/lever-1873.jpg" alt="Engraved 1873 lever action receiver" loading="lazy"></div>
         <div class="body">
           <h3>Laser Engraving</h3>
           <p class="desc">Metal, wood and stocks. Period correct scrollwork, names, unit crests, serial plates. Ship it in, get it back in two weeks.</p>
@@ -628,6 +677,9 @@ tbody tr:hover td.us{background:#fbe5e3}
   /* stagger siblings inside each grid */
   document.querySelectorAll('.era-rail,.grid,.principles,.services').forEach(g=>[...g.children].forEach((c,i)=>c.style.setProperty('--d',(i*0.09)+'s')));
   document.querySelectorAll('tbody tr').forEach((r,i)=>r.style.transitionDelay=(0.1+i*0.08)+'s');
+
+  /* platform reel: duplicate items for a seamless loop */
+  const track=document.querySelector('.reel-track');if(track){[...track.children].forEach(f=>{const c=f.cloneNode(true);c.setAttribute('aria-hidden','true');track.appendChild(c);});}
 
   /* nav */
   const nav=document.getElementById('nav');
