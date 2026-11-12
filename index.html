@@ -286,20 +286,26 @@ section,header{scroll-margin-top:60px}
 @media(max-width:640px){.grid{grid-template-columns:1fr}.card.feature{grid-column:span 1;flex-direction:column}.card.feature .img{flex:none;aspect-ratio:16/10;border-right:0;border-bottom:1px solid var(--line);padding:24px}.card.feature .bd{padding:24px}}
 
 /* ================= INSTALL ================= */
-.install{background:var(--white);border:1px solid var(--line-2);padding:clamp(24px,4vw,48px);display:grid;grid-template-columns:minmax(0,1fr);gap:28px;position:relative}
-.clock{position:absolute;top:clamp(20px,3vw,36px);right:clamp(20px,3vw,40px);text-align:right}
-.clock span{display:block;font-family:var(--display);font-stretch:78%;font-weight:800;font-size:clamp(44px,6vw,72px);line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}
-.clock small{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-.track{height:4px;background:var(--paper-2);margin-top:clamp(70px,8vw,96px);position:relative;overflow:hidden}
-.track .fill{position:absolute;inset:0;background:var(--red);transform:scaleX(0);transform-origin:left}
-.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,40px)}
-.step{display:grid;gap:10px;opacity:.38;transition:opacity .5s var(--ease)}
+.inst{background:var(--navy);color:#fff;position:relative;overflow:hidden;-webkit-font-smoothing:antialiased}
+.inst::before{content:"";position:absolute;inset:0;background:radial-gradient(700px 420px at 85% 20%,rgba(255,255,255,.07),transparent 70%);pointer-events:none}
+.inst .wrap{position:relative}
+.inst .kicker{color:var(--red-ink)}
+.inst .head h2{color:#fff}
+.inst .head .lede{color:rgba(255,255,255,.88)}
+.install{border-top:1px solid rgba(255,255,255,.18);padding-top:clamp(28px,4vw,44px);display:grid;gap:30px;position:relative}
+.clock{display:flex;align-items:baseline;gap:16px}
+.clock span{font-family:var(--display);font-stretch:78%;font-weight:800;font-size:clamp(56px,8vw,104px);line-height:.9;color:#fff;font-variant-numeric:tabular-nums}
+.clock small{font-family:var(--mono);font-size:12.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.78)}
+.track{height:4px;background:rgba(255,255,255,.16);position:relative;overflow:hidden;border-radius:2px}
+.track .fill{position:absolute;inset:0;background:var(--red-2);transform:scaleX(0);transform-origin:left}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,44px);align-items:start}
+.step{display:grid;align-content:start;gap:10px;padding-top:6px;opacity:.42;transition:opacity .5s var(--ease)}
 .step.on{opacity:1}
-.step .t{font-family:var(--mono);font-size:13px;font-weight:500;color:var(--red)}
-.step h3{font-size:clamp(22px,2.2vw,28px);color:var(--ink)}
-.step p{color:var(--soft);font-size:16px}
-.install .note{font-size:14px;color:var(--muted);border-top:1px solid var(--line);padding-top:18px}
-@media(max-width:760px){.steps{grid-template-columns:1fr}.clock{position:static;text-align:left}.track{margin-top:0}}
+.step .t{font-family:var(--mono);font-size:13px;font-weight:500;color:var(--red-ink)}
+.step h3{font-size:clamp(22px,2.2vw,28px);color:#fff}
+.step p{color:rgba(255,255,255,.86);font-size:16px}
+.install .note{font-size:14px;color:rgba(255,255,255,.78);padding-top:4px}
+@media(max-width:760px){.steps{grid-template-columns:1fr}}
 
 /* ================= ENGINEERING ================= */
 .eng{background:var(--ink);color:#fff;position:relative;overflow:hidden}
@@ -626,26 +632,6 @@ body.ready .pin .ln{transform:scaleY(1);transition-delay:calc(1.35s + var(--d,0s
   </div>
 </section>
 
-<!-- ============ INSTALL ============ -->
-<section id="install" class="gray">
-  <div class="wrap">
-    <div class="head">
-      <div class="rv"><div class="kicker">The Two Minute Install</div><h2>Three steps. No gunsmith.</h2></div>
-      <p class="lede rv" style="--d:.1s">With the Continental internal kit in place, switching an 1851 to cartridges is a cylinder swap. No grinding, no filing, no fitting.</p>
-    </div>
-    <div class="install rv" id="installRun" style="--d:.15s">
-      <div class="clock" aria-hidden="true"><span id="clock">0:00</span><small>Target time</small></div>
-      <div class="track"><span class="fill" id="trackFill"></span></div>
-      <ol class="steps">
-        <li class="step" data-at="0"><span class="t">0:00</span><h3>Clear and open</h3><p>Confirm the revolver is unloaded. Set the hammer at half cock, push out the barrel wedge and slide the barrel off the arbor.</p></li>
-        <li class="step" data-at="0.4"><span class="t">0:45</span><h3>Swap the cylinder</h3><p>Lift out the cap and ball cylinder and set the Continental cylinder on the arbor. The flat rear face sits against the frame with no fitting.</p></li>
-        <li class="step" data-at="0.78"><span class="t">1:30</span><h3>Close it up</h3><p>Refit the barrel and wedge. Check that the cylinder turns and locks at every chamber, then head to the range.</p></li>
-      </ol>
-      <p class="note">Every part ships with full written instructions. Always confirm a revolver is unloaded before working on it.</p>
-    </div>
-  </div>
-</section>
-
 <!-- ============ ENGINEERING ============ -->
 <section id="engineering" class="eng">
   <div class="wrap">
@@ -693,6 +679,26 @@ body.ready .pin .ln{transform:scaleY(1);transition-delay:calc(1.35s + var(--d,0s
           <tr><th scope="row">Availability</th><td class="them">One to three units in stock</td><td class="us" style="--d:.5s">Production runs, actually in stock</td></tr>
         </tbody>
       </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INSTALL ============ -->
+<section id="install" class="inst">
+  <div class="wrap">
+    <div class="head">
+      <div class="rv"><div class="kicker">The Two Minute Install</div><h2>Three steps. No gunsmith.</h2></div>
+      <p class="lede rv" style="--d:.1s">With the Continental internal kit in place, switching an 1851 to cartridges is a cylinder swap. No grinding, no filing, no fitting.</p>
+    </div>
+    <div class="install rv" id="installRun" style="--d:.15s">
+      <div class="clock" aria-hidden="true"><span id="clock">0:00</span><small>Target time</small></div>
+      <div class="track"><span class="fill" id="trackFill"></span></div>
+      <ol class="steps">
+        <li class="step" data-at="0"><span class="t">0:00</span><h3>Clear and open</h3><p>Confirm the revolver is unloaded. Set the hammer at half cock, push out the barrel wedge and slide the barrel off the arbor.</p></li>
+        <li class="step" data-at="0.4"><span class="t">0:45</span><h3>Swap the cylinder</h3><p>Lift out the cap and ball cylinder and set the Continental cylinder on the arbor. The flat rear face sits against the frame with no fitting.</p></li>
+        <li class="step" data-at="0.78"><span class="t">1:30</span><h3>Close it up</h3><p>Refit the barrel and wedge. Check that the cylinder turns and locks at every chamber, then head to the range.</p></li>
+      </ol>
+      <p class="note">Every part ships with full written instructions. Always confirm a revolver is unloaded before working on it.</p>
     </div>
   </div>
 </section>
