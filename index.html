@@ -286,8 +286,8 @@ section,header{scroll-margin-top:60px}
 @media(max-width:640px){.grid{grid-template-columns:1fr}.card.feature{grid-column:span 1;flex-direction:column}.card.feature .img{flex:none;aspect-ratio:16/10;border-right:0;border-bottom:1px solid var(--line);padding:24px}.card.feature .bd{padding:24px}}
 
 /* ================= INSTALL ================= */
-.inst{background:var(--navy);color:#fff;position:relative;overflow:hidden;-webkit-font-smoothing:antialiased}
-.inst::before{content:"";position:absolute;inset:0;background:radial-gradient(700px 420px at 85% 20%,rgba(255,255,255,.07),transparent 70%);pointer-events:none}
+.inst{background:var(--ink);color:#fff;position:relative;overflow:hidden;-webkit-font-smoothing:antialiased}
+.inst::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px) 0 0/48px 48px,linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px) 0 0/48px 48px;pointer-events:none}
 .inst .wrap{position:relative}
 .inst .kicker{color:var(--red-ink)}
 .inst .head h2{color:#fff}
@@ -380,7 +380,8 @@ section,header{scroll-margin-top:60px}
 @media(max-width:860px){.faq-wrap{grid-template-columns:1fr}}
 
 /* ================= RANGE PACK ================= */
-.pack{background:var(--navy);color:#fff;position:relative;overflow:hidden;padding-block:clamp(64px,8vw,96px)}
+.pack{background:var(--ink);color:#fff;position:relative;overflow:hidden;padding-block:clamp(64px,8vw,96px)}
+.pack::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px) 0 0/48px 48px,linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px) 0 0/48px 48px;pointer-events:none}
 .pack .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1.2fr) auto;gap:32px;align-items:center}
 .pack h2{font-size:clamp(32px,4vw,52px)}
 .pack p{color:rgba(255,255,255,.86);margin-top:14px;max-width:52ch}
